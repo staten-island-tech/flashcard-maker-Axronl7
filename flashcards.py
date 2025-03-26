@@ -1,3 +1,4 @@
+import random
 import json
 class flash_Card:
     def __init__(self, question, answer):
@@ -34,4 +35,27 @@ cards_data.append(new_card.to_dict())
 with open("cars.json", "r") as file:
     json.dump(cards_data, file, indent=4) """
 
-    class Students(flash_Card):
+class Students(flash_Card):
+    def __init__(self, question, answer, grade):
+        super().__init__(question, answer)
+    
+    mode = input("Student or TeacherMODE: input s or t")
+    if mode.lower() == "s":
+        print("student mode")
+        
+
+        ask = "do you want to continue: yes/no"
+        askA = input(f"{ask}")
+    question = random.choice(cards_data)
+    while ask.lower() == "yes":
+        answer =  input(f"{question['question']} answer:")
+        if answer == question['answer']:
+            print("correct")
+            
+            
+        else:
+            print(f"incorrect the correct answer is {question['answer']}")
+            print(ask)
+        if askA.lower() == "no":
+            break
+        
