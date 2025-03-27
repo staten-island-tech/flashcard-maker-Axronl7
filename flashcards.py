@@ -36,8 +36,9 @@ with open("cars.json", "r") as file:
     json.dump(cards_data, file, indent=4) """
 
 class Students(flash_Card):
-    def __init__(self, question, answer, grade):
+    def __init__(self, question, answer, streak):
         super().__init__(question, answer)
+        self.streak = streak
     
     mode = input("Student or TeacherMODE: input s or t")
     if mode.lower() == "s":
@@ -46,16 +47,27 @@ class Students(flash_Card):
 
         ask = "do you want to continue: yes/no"
         askA = input(f"{ask}")
-    question = random.choice(cards_data)
-    while ask.lower() == "yes":
+        streak = 0
+        points = 0 
+
+
+    while askA.lower() == "yes":      
+        question = random.choice(cards_data)
         answer =  input(f"{question['question']} answer:")
-        if answer == question['answer']:
-            print("correct")
-            
-            
-        else:
-            print(f"incorrect the correct answer is {question['answer']}")
-            print(ask)
-        if askA.lower() == "no":
-            break
+        if streak == 5:
+            points += 2
         
+        if answer.lower() == question['answer'].lower():
+            streak += 1
+            points += 1
+            print(input(f"correct, {ask}           points:{points}     streak:{streak}"))
+        
+        else:
+            print(f"incorrect the correct answer is {question['answer']}     points:{points}     streak:{streak}")
+            streak = 0
+            
+            askA = input(f"{ask}")
+            if askA.lower() == "no":
+                print("Goodbye")
+                break
+    
