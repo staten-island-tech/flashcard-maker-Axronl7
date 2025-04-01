@@ -66,8 +66,8 @@ class Students(flash_Card):
             print(f"incorrect the correct answer is {question['answer']}     points:{points}     streak:{streak}")
             streak = 0
             
-            askA = input(f"{ask}")
-            if askA.lower() == "no":
-                print("Goodbye")
-                break
+        askA = input(f"{ask}")
+        if askA.lower() == "no":
+            print("Goodbye")
+            break
     
