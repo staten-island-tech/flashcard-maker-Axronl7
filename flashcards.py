@@ -24,16 +24,33 @@ with open("flashcards.json", "w") as file:
         def __init__(self, question, answer, user):
             super().__init__(question, answer)
             self.user = user
-""" try:
-    with open("cars.json", "r") as file:
-        cars_data = json.load(file)
+
+
+ask1 = "do you want to continue: yes/no"
+askB = input(ask1)
+while askB.lower() == "yes":
+    questionA = input("input a question:")
+    answerA = input(f"input the answer to {questionA}:")
+    print(input(ask1))
+    new_card = flash_Card(questionA, answerA)                
+    askB = input(f"{ask1}")
+    if askB.lower() == "no":
+        print("Goodbye")
+        break
+    
+
+
+try:
+    with open("flashcards.json", "r") as file:
+        cards_data = json.load(file)
 except FileNotFoundError:
-    cars_data = []
+    cards_data = []
 
 cards_data.append(new_card.to_dict())
 
-with open("cars.json", "r") as file:
-    json.dump(cards_data, file, indent=4) """
+with open("flashcards.json", "w") as file:
+    json.dump(cards_data, file, indent=4)
+
 
 class Students(flash_Card):
     def __init__(self, question, answer, streak):

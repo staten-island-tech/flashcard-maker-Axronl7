@@ -34,5 +34,21 @@
         "model": "Malibu",
         "year": 2024,
         "image": "malibu_image.jpg"
+    },
+    {
+        "question": "2+2",
+        "answer": "4"
+    },
+    {
+        "question": "2+2",
+        "answer": "4"
+    },
+    {
+        "question": "4+4",
+        "answer": "8"
+    },
+    {
+        "question": "4+4",
+        "answer": "8"
     }
 ]
