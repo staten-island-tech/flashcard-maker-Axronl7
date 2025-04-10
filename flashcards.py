@@ -4,8 +4,6 @@ class flash_Card:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
-    def display_info(self):
-        return f"Question: {self.question}, Answer: {self.answer}"
     def to_dict(self):
         return {"question": self.question, "answer": self.answer}
 flash_cards = [
@@ -71,7 +69,7 @@ else:
                 if answer.lower() == question['answer'].lower():
                     streak += 1
                     points += 1
-                    print(input(f"correct, {ask}           points:{points}     streak:{streak}"))
+                    print((f"correct,       points:{points}     streak:{streak}"))
         
                 else:
                     print(f"incorrect the correct answer is {question['answer']}     points:{points}     streak:{streak}")
